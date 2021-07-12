@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-// const packageJson = require('../package.json');
+const packageJson = require('../package.json');
 const path = require("path"); 
 
 const devConfig = {
@@ -44,11 +44,13 @@ const devConfig = {
         new ModuleFederationPlugin({
             name: 'container',
             filename: 'remoteEntry.js',
-            remotes: {},
-            exposes: {
+            library: { type: "var", name: "container" },
+            remotes: {
+                'home': 'home'
             },
+            exposes: {},
             // shared: ['react', 'react-dom']
-            // shared: packageJson.dependencies // optional way to list all dependencies as shared
+            shared: packageJson.dependencies // optional way to list all dependencies as shared
         })
     ]
 }

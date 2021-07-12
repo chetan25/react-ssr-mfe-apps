@@ -3,10 +3,10 @@ import React from 'react';
 // import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { MemoryHistory } from 'history';
-import { useHistory } from 'react-router-dom'; 
+// import { useHistory } from 'react-router-dom'; 
 
 // import About from './About';
-import Home from './Home';
+import Container from './Container';
 
 // to avoid name collision in production, we would prefix class names generated
 const generateClassName = createGenerateClassName({
@@ -17,15 +17,14 @@ interface HomeAppProps {
   history?: MemoryHistory
 }
 
-const HomeApp = ({history}: HomeAppProps) => {
-  const localHistory = useHistory();
-  console.log(localHistory, 'localHistory');
+const ContainerApp = ({history}: HomeAppProps) => {
+  // const localHistory = useHistory();
 
   return (
     <div>
        <StylesProvider generateClassName={generateClassName}>
           <div>
-            <Home />
+            <Container />
           </div>
            {/* <Router history={history}>
               <Switch>
@@ -38,4 +37,4 @@ const HomeApp = ({history}: HomeAppProps) => {
   );
 };
 
-export default HomeApp;
+export default ContainerApp;

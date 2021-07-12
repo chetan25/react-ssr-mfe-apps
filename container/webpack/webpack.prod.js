@@ -18,10 +18,12 @@ const prodConfig = {
         // }),
         new ModuleFederationPlugin({
             name: 'container',
+            library: { type: "var", name: "container" },
             filename: 'remoteEntry.js',
-            remotes: {},
-            exposes: {
+            remotes: {
+                'home': 'home'
             },
+            exposes: {},
             shared: packageJson.dependencies // optional way to list all dependencies as shared
         })
     ]

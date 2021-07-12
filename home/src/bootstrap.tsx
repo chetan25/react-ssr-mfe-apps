@@ -24,7 +24,6 @@ const mountHomeApp = (element: HTMLElement, options?: MountOptions) => {
     //     initialEntries: [options?.initialPath || '']
     // });
 
-    console.log('history', history);
     // if (options) {
     //     history.listen(options.onNavigate);
     // }
@@ -56,4 +55,4 @@ if (process.env.NODE_ENV === 'development') {
 
 
 // used by Container App to load the Micro FE
-export default mountHomeApp;
+export { mountHomeApp };

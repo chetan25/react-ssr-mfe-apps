@@ -31,6 +31,7 @@ export default (req, store) => {
                    ${content}
                 </div>
                 <script src="bundle.js"></script>
+                <script src="http://localhost:3002/remoteEntry.js"></script>
                 <script src="http://localhost:3001/bundle.js"></script>
            </body>
         </html>

@@ -7,11 +7,11 @@ const path = require("path");
 const devConfig = {
     mode: 'development',
     output: {
-        publicPath: 'http://localhost:3001/'
+        publicPath: 'http://localhost:3002/'
     },
     devtool: 'source-map',
     devServer: {
-        port: 3001,
+        port: 3002,
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         headers: {
@@ -41,7 +41,6 @@ const devConfig = {
         }),
         new ModuleFederationPlugin({
             name: 'home',
-            library: { type: 'var', name: 'home' },
             filename: 'remoteEntry.js',
             remotes: {},
             exposes: {

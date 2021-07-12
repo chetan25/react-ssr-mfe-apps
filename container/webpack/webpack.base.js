@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/bootstrap.tsx',
+    entry: './src/index.js',
     module: {
         rules: [
             {
