@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+// import { Link as RouterLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 const Home = () => {
@@ -10,8 +10,6 @@ const Home = () => {
               variant="h6"
               color="inherit"
               noWrap
-              component={RouterLink}
-              to="/home/about"
             >
               About
             </Typography>

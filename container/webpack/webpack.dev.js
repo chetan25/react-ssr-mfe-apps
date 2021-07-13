@@ -49,8 +49,15 @@ const devConfig = {
                 'home': 'home'
             },
             exposes: {},
-            // shared: ['react', 'react-dom']
-            shared: packageJson.dependencies // optional way to list all dependencies as shared
+            shared: {
+                'react': {
+                    singleton: true, eager: true
+                },
+                'react-dom': {
+                    singleton: true, eager: true
+                }
+            }
+            // shared: packageJson.dependencies // optional way to list all dependencies as shared
         })
     ]
 }
