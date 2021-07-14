@@ -1,19 +1,17 @@
 const { merge } = require('webpack-merge');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require('../package.json');
 const path = require("path"); 
-
 const devConfig = {
     mode: 'development',
     output: {
-        filename: 'bundle.js',
-        publicPath: 'http://localhost:3001/'
+        publicPath: 'http://localhost:3003/'
     },
     devtool: 'source-map',
     devServer: {
-        port: 3001,
+        port: 3003,
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
         headers: {
@@ -38,18 +36,16 @@ const devConfig = {
         // }
     },
     plugins: [
-        // new HtmlWebpackPlugin({
-        //     template: './public/index.html',
-        // }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
         new ModuleFederationPlugin({
-            name: 'container',
+            name: 'about',
             filename: 'remoteEntry.js',
-            library: { type: "var", name: "container" },
-            remotes: {
-                'home': 'home',
-                'about': 'about'
+            remotes: {},
+            exposes: {
+                './AboutApp': './src/bootstrap'
             },
-            exposes: {},
             shared: {
                 'react': {
                     singleton: true, eager: true

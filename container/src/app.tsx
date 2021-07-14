@@ -1,39 +1,37 @@
   
-import React from 'react';
-// import { Switch, Route, Router } from 'react-router-dom';
+import React, {lazy, Suspense} from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
-import { MemoryHistory } from 'history';
-// import { useHistory } from 'react-router-dom'; 
+// import { MemoryHistory } from 'history';
+import { useHistory } from 'react-router-dom'; 
 
 // import About from './About';
 import Container from './Container';
+const HomeApp = lazy(() => import('./HomwApp'));
+const AboutApp = lazy(() => import('./AboutApp'));
 
 // to avoid name collision in production, we would prefix class names generated
 const generateClassName = createGenerateClassName({
   productionPrefix: 'mrk'
 });
 
-interface HomeAppProps {
-  history?: MemoryHistory
-}
 
-const ContainerApp = ({history}: HomeAppProps) => {
-  // const localHistory = useHistory();
+const ContainerApp = () => {
+  const localHistory = useHistory();
+  console.log(localHistory, 'localHistory');
 
   return (
-    <div>
+    <Suspense fallback='loading....'>
        <StylesProvider generateClassName={generateClassName}>
-          <div>
-            <Container />
-          </div>
-           {/* <Router history={history}>
+           <Router>
+              <div><Container /></div>
               <Switch>
-                  <Route exact path='/home/about' component={About} />
-                  <Route exact path='/home' component={Home} />
+                  <Route exact path='/about' component={AboutApp} />
+                  <Route exact path='/' component={HomeApp} />
               </Switch>
-           </Router> */}
+           </Router>
        </StylesProvider>
-    </div>
+    </Suspense>
   );
 };
 

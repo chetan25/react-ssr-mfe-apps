@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import { mountHomeApp } from 'home/HomeApp';
+import { mountAboutApp } from 'about/AboutApp';
 
 
-const HomePage = () => {
+const AboutApp = () => {
     const ref = useRef(null);
-    console.log('container', mountHomeApp);
+    console.log('container', mountAboutApp);
 
     useEffect(() => {
         if (ref.current) {
-            mountHomeApp(ref.current!);
+          mountAboutApp(ref.current!);
         }
     }, []);
 
@@ -17,4 +17,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default AboutApp;

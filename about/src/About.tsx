@@ -9,19 +9,22 @@ const useStyles = makeStyles(() => ({
   cardWrapper: {
     margin: '2rem'
   },
+  cardItem: {
+    backgroundColor: 'grey'
+  }
 }));
 
-const Home = () => {
+const About = () => {
   const classes = useStyles();
     return <article className={classes.cardWrapper}>
-        <Card>
+        <Card className={classes.cardItem}>
             <CardActionArea>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Remote Home App
+                      AboutApp AboutApp App
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                      This is a remote home app, that is loaded at runtime. It is served from 'http://localhost:3002/'
+                      This is a remote AboutApp app, that is loaded at runtime. It is served from 'http://localhost:3003/'
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -29,4 +32,4 @@ const Home = () => {
     </article> 
 }
 
-export default Home;
+export default About;

@@ -8,6 +8,7 @@ import { StaticRouter } from 'react-router-dom';
 // assume this is set in another app and coming from a db or something
 const CONTAINER_APP_BUNDLE_PATH = 'http://localhost:3001/bundle.js';
 const HOME_APP_REMOTE_ENTRY_PATH = 'http://localhost:3002/remoteEntry.js';
+const ABOUT_APP_REMOTE_ENTRY_PATH = 'http://localhost:3003/remoteEntry.js';
 
 export default (req) => {
     // this is generated html
@@ -31,6 +32,7 @@ export default (req) => {
                 </div>
                 <script src="bundle.js"></script>
                 <script src="${HOME_APP_REMOTE_ENTRY_PATH}"></script>
+                <script src="${ABOUT_APP_REMOTE_ENTRY_PATH}"></script>
                 <script src="${CONTAINER_APP_BUNDLE_PATH}"></script>
            </body>
         </html>

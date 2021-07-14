@@ -1,27 +1,39 @@
-import React, {Suspense, lazy }  from 'react';
-// import { Link as RouterLink } from 'react-router-dom';
+import React  from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-const HomeApp = lazy(() => import('./HomwApp'));
+const useStyles = makeStyles((theme) => ({
+   linkItem: {
+    paddingRight: '1rem'
+   }
+}));
+
 
 const Container = () => {
-    return  <Suspense fallback='loading....'>
-      <div>
-        <h2>Hello From Remote Container Page</h2>
-        <div>
+    const classes = useStyles();
+     return <div>
             <Typography
                 variant="h6"
                 color="inherit"
                 noWrap
-                // component={RouterLink}
-                // to="/home/about"
+                className={classes.linkItem}
+                component={RouterLink}
+                to="/"
               >
-                Container
+                Home
             </Typography>
-            <HomeApp/>
-          </div>
+            <Typography
+                variant="h6"
+                className={classes.linkItem}
+                color="inherit"
+                noWrap
+                component={RouterLink}
+                to="/about"
+              >
+                About
+            </Typography>
       </div>
-    </Suspense>
 }
 
 export default Container;

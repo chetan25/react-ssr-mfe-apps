@@ -25,6 +25,12 @@ body {
    background-color: #2459658c; 
 }
 
+.header > nav {
+   display: grid;
+   grid-template-columns: max-content max-content max-content;
+   grid-gap: 2rem;
+}
+
 .content {
    grid-area: content;
    padding: 2rem;
