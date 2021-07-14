@@ -15,14 +15,16 @@ This is a simple Express server that serves following pupose:
 #### Container App
 - This is the Container App, that would load the other micro front ends.
 - It will be the main Remote app that handles the routing and serves the Shell for managing other apps.
-- The main bundle for will be loaded directly from the Server.
+- The main bundle for this be loaded directly from the Server.
 
 
 #### Home App
-- To be added soon
+- Shows a simple card indicating the Home App content
+- Run `npm start` from the `home` folder to serve the Home App
 
 #### About App
-- To be added soon
+- Shows a simple card indicating the About App content
+- Run `npm start` from the `about` folder to serve the About App
 
 
 ## Local development
@@ -34,6 +36,14 @@ This is a simple Express server that serves following pupose:
 #### Container App
 - Run `npm start` to serve the javascripts file for the container app.
 - This will start the server at `http://localhost:3001`
+
+#### Home App
+- Run `npm start` from the `home` folder to serve the Home App
+- This will start the server at `http://localhost:3002`
+
+#### About App
+- Run `npm start` from the `about` folder to serve the About App
+- This will start the server at `http://localhost:3003`
 
 ## Gotchas
 
