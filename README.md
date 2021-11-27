@@ -1,7 +1,7 @@
 ---
 title: Simple SSR React App with Micro Frontends.
 excerpt: Building a simple SSR react that loads different micro frontends dynamically.
-Tools: ['Express', 'React', 'Redux', 'ReactDOM' 'Webpack']
+Tools: ['Express', 'React', 'Redux', 'ReactDOM', 'Webpack']
 ---
 
 ## Mono Repo Structure
